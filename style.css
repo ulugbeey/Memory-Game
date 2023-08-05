@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik";
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #0a3c2f;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  background: #0d614b;
+  padding: 40px 60px;
+  cursor: default;
+}
+
+h2 {
+  font-size: 3em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.reset {
+  padding: 15px 20px;
+  color: #267c65;
+  background: #fff;
+  border: none;
+  font-size: 1.5em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.reset:hover {
+  color: #fff;
+  background: #267c65;
+}
+
+.game {
+  width: 430px;
+  height: 430px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  transform-style: preserve-3d;
+  perspective: 500px;
+}
+
+.modal.active {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+}
+
+.modal {
+  display: none;
+}
+
+.modalBox {
+  position: relative;
+  width: 500px;
+  height: 490px;
+  padding: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: darkcyan;
+}
+
+.fas {
+  position: absolute;
+  top: 25px;
+  left: 450px;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.item {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3em;
+  transform: rotateY(180deg);
+  background: #d2c4c4;
+  transition: 0.25s;
+}
+
+.item.boxOpen {
+  transform: rotateY(0deg);
+}
+
+.item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #209d7b;
+  transition: 0.25s;
+  transform: rotateY(0deg);
+  backface-visibility: hidden;
+}
+
+.boxOpen:after,
+.boxMatch:after {
+  transform: rotateY(180deg);
+}
